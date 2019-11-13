@@ -1,0 +1,14 @@
+
+Includes
+1) timer
+2) localStorage
+3) creation of objects, which is new outside of the json(parse) thing. so we'll need to read up on that
+4) variables to hold scores
+5) variables to hold questions
+6) decrementing time, and adding or subtracting from that time based on answers
+
+Questions that need to be answered:
+1) how to create objects? what does that look like with answering questions in javascript?
+2) is the quiz multiple pages? or are we hiding text once a button has been clicked?
+- I think this has to do with rendering, and we won't be doing multiple pages
+3) What questions do you want to use?

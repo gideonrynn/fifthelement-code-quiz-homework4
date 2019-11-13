@@ -23,6 +23,50 @@
 
   <body background="assets/images/arches.png">
 
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-around" style="background-color: #600060;;">
+
+      <a class="highscores" style="color: #cccccc;" href="#"><h5>View High Scores</h5></a>
+                
+      <a class="navbar-brand" style="color: #cccccc;" href="#"><h4>Coding Quiz Challenge</h4></a>
+
+      <!-- Start of what the timer is referencing -->
+
+      <div class="timer" style="color: #cccccc;"> <h5>Time: </h5><div id="seconds">0</div></div>
+
+      <!-- End of what the timer script is referencing -->
+           
+    </nav>
+
+    <div class="container">
+
+      <div class="row">
+            
+        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 mx-auto shadow p-3 mb-5 bg-white rounded text-center">
+
+          <div class="starter"></div>
+            <h5> Test Your Knowledge</h5>
+            <p>This is a coding quiz that will have coding quiz questions! Answering the questions to this coding quiz will make you the master of everything!
+            </p>
+            <button type="button" id="startquizbtn" class="btn btn-success">Start Quiz</button>
+            
+          </div>
+
+          
+          <div class ="progressSection">
+          <!-- This is where any updates will go: "Time is up" "You won this quiz" "Etc" -->
+          <div id="progress"></div>
+          </div>
+
+
+        </div>
+        <!-- End Column -->
+
+    </div>
+    <!-- End Row -->
+
+
+
+
     <script type="text/javascript" src="assets/questions.js"></script>
 
   </body>
