@@ -8,6 +8,10 @@ var timeRemaining = "0";
 
 //Object
 
+//do I need this?
+var answerButton = document.querySelector("#answer-button");
+
+var starterSection = document.querySelector("starter");
 
 //* Store your questions as an array of objects in a separate file, `questions.js`, that follows this format: ```js//
 
@@ -28,6 +32,9 @@ var questions = [
     answer: "semicolon"
   },
 ];
+
+var datatypes = questions[0]["choices"];
+console.log(datatypes);
 
 //* The length of the array in `questions.js` determines the length of play. Fifteen seconds per question is a good estimate, so 5 questions will result in a length of play of 75 seconds.//
 
@@ -58,8 +65,35 @@ function sendTimeIsUp() {
 
 }
 
-startquizbtn.addEventListener("click", setTime);
+function addChoices() {
 
+  var li = document.createElement("li");
+  li.textContent = datatypes;
+
+  //want to button inside of list item//
+  answerButton.appendChild(li);
+}
+
+
+startquizbtn.addEventListener("click", setTime);
+startquizbtn.addEventListener("click", addChoices);
 
 //End Timer Script
+
+//Object Script
+
+
+
+// //doesn't work but maybe come back to
+
+// function hideElement() {
+//   var startHidden = starterSection.setAttribute("style", "visibility: hidden;");
+//   startHidden.appendChild(starter);
+
+// }
+
+// //doesn't work
+// startquizbtn.addEventListener("click", hideElement);
+// //doesn't work
+// 
 
