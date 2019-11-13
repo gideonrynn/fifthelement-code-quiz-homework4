@@ -6,6 +6,9 @@ var timer = document.querySelector("#seconds");
 var progressUpdate = document.getElementById("progress");
 var timeRemaining = "0";
 
+//Object
+
+
 //* Store your questions as an array of objects in a separate file, `questions.js`, that follows this format: ```js//
 
 var questions = [
