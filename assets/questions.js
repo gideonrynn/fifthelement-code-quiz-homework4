@@ -8,8 +8,7 @@ var timeRemaining = "0";
 
 //Object
 
-//do I need this?
-var answerButton = document.querySelector("#answer-button");
+var answerList = document.querySelector("#answer-list");
 
 var starterSection = document.querySelector(".starter");
 
@@ -55,29 +54,33 @@ function setTime() {
     }
 
   }, 1000);
+
+  addChoices()
 }
 
 function sendTimeIsUp() {
   timer.textContent = "0";
 
-  var timeIsUp = document.createElement("h1");
-  timeIsUp.innerHTML = "Time is up!";
+  var timeIsUp = document.createElement("h5");
+  timeIsUp.innerHTML = ("<hr>" + "Time is up!");
   progressUpdate.appendChild(timeIsUp);
 
 }
 
 function addChoices() {
 
+  for (var i = 0; i < questions[i].choices.length; i++) {
+
   var li = document.createElement("li");
-  li.textContent = datatypes;
+  li.textContent = questions[i].choices;
+  li.setAttribute("data-index", i);
 
-  var questionHeader = document.createElement("h2")
-  questionHeader.textContent = titleQuestion;
-
-  //want to button inside of list item//
-  var button = document.createElement("button");
-  answerButton.appendChild(li);
+  var questionHeader = document.createElement("h5")
+  questionHeader.textContent = questions[i]["title"];
+  answerList.appendChild(li);
   titlePlaceholder.appendChild(questionHeader);
+
+  }
 }
 
 function hideStart() {
@@ -86,7 +89,6 @@ function hideStart() {
 
 
 startquizbtn.addEventListener("click", setTime);
-startquizbtn.addEventListener("click", addChoices);
 startquizbtn.addEventListener("click", hideStart);
 
 //End Timer Script
@@ -94,17 +96,4 @@ startquizbtn.addEventListener("click", hideStart);
 //Object Script
 
 
-
-// //doesn't work but maybe come back to
-
-// function hideElement() {
-//   var startHidden = starterSection.setAttribute("style", "visibility: hidden;");
-//   startHidden.appendChild(starter);
-
-// }
-
-// //doesn't work
-// startquizbtn.addEventListener("click", hideElement);
-// //doesn't work
-// 
 
