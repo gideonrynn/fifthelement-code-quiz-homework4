@@ -11,7 +11,9 @@ var timeRemaining = "0";
 //do I need this?
 var answerButton = document.querySelector("#answer-button");
 
-var starterSection = document.querySelector("starter");
+var starterSection = document.querySelector(".starter");
+
+var titlePlaceholder = document.querySelector(".title");
 
 //* Store your questions as an array of objects in a separate file, `questions.js`, that follows this format: ```js//
 
@@ -36,8 +38,7 @@ var questions = [
 var datatypes = questions[0]["choices"];
 console.log(datatypes);
 
-//* The length of the array in `questions.js` determines the length of play. Fifteen seconds per question is a good estimate, so 5 questions will result in a length of play of 75 seconds.//
-
+var titleQuestion = questions[0]["title"];
 
 //Timer Script (remember to rename these variables and whatnot)
 function setTime() {
@@ -70,13 +71,23 @@ function addChoices() {
   var li = document.createElement("li");
   li.textContent = datatypes;
 
+  var questionHeader = document.createElement("h2")
+  questionHeader.textContent = titleQuestion;
+
   //want to button inside of list item//
+  var button = document.createElement("button");
   answerButton.appendChild(li);
+  titlePlaceholder.appendChild(questionHeader);
+}
+
+function hideStart() {
+  starterSection.setAttribute('style', 'display:none');
 }
 
 
 startquizbtn.addEventListener("click", setTime);
 startquizbtn.addEventListener("click", addChoices);
+startquizbtn.addEventListener("click", hideStart);
 
 //End Timer Script
 
