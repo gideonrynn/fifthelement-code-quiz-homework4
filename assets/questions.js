@@ -34,10 +34,6 @@ var questions = [
   },
 ];
 
-var datatypes = questions[0]["choices"];
-console.log(datatypes);
-
-var titleQuestion = questions[0]["title"];
 
 //Timer Script (remember to rename these variables and whatnot)
 function setTime() {
