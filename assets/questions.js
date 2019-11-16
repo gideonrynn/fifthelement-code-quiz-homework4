@@ -2,65 +2,78 @@
 
 var questions = [
   {
-    title: "1. The Fifth Element was written by _______",
+    title: "The Fifth Element was written by _______.",
     choices: ["John Stamos", "Luc Besson", "Sting", "Maggie Smith"],
     answer: "Luc Besson"
   },
   {
-    title: "2. Ruby Rhod is played by ________",
+    title: "Ruby Rhod is played by ________.",
     choices: ["Bruce Willis", "Chris Tucker", "Gary Oldman", "Milla Jovovich"],
     answer: "Chris Tucker"
   },
   {
-    title: "3. Zorg's middle name is ________",
-    choices: ["Jean", "Baptiste", "Emmanuel", "Zorg"],
-    answer: "Emmanuel"
+    title: "Zorg's full name is ________.",
+    choices: ["Jean Zorg", "Baptiste Zorg", "Jean Baptiste Emmanuel Zorg", "Gary Zorg"],
+    answer: "Jean Baptiste Emmanuel Zorg"
   },
   {
-    title: "4. The fifth element is _______",
+    title: "The fifth element is _______.",
     choices: ["love", "water", "earth", "wind"],
     answer: "love"
   },
   {
-    title: "5. Milla Jovovich was __ years old when she landed the role of this movie.",
+    title: "Milla Jovovich was __ years old when she landed the role of this movie.",
     choices: ["19", "21", "33", "80"],
     answer: "19"
   }
 ];
 
-//All Variables
+//Set variables that will be updated by JavaScript through timer and click events
 
-//Timer Variables
 var timer = document.querySelector("#seconds");
 var progressUpdate = document.getElementById("progress");
+
+//may not need this
 var timeRemaining = "0";
 
-//Object Variables
-var answerList = document.querySelector("#answer-list");
+var choicesList = document.querySelector("#choices-list");
 var starterSection = document.querySelector(".starter");
 var titlePlaceholder = document.querySelector(".title");
 
-//Timer Script (remember to rename these variables and whatnot)
+//Starts off as zero. This will be logged into localStorage so that the user can view high scores at a later date. The timer #seconds will pull into here as well
+var score = "0";
 
-function addChoices() {
+//this is the question object/array we are currently on
+var currentQuestion = "0";
 
-  for (var i = 0; i < questions.length; i++) {
+var userSelection = "";
 
-  var li = document.createElement("li");
-  li.textContent = questions[i]["choices"];
+//variables that store clicks from the user
 
-  var questionHeader = document.createElement("h5")
-  questionHeader.textContent = questions[i]["title"];
-  answerList.appendChild(li);
-  titlePlaceholder.appendChild(questionHeader);
+function displayQuestions() {
 
+  var question = questions[currentQuestion];
+  titlePlaceholder.innerHTML = questions[currentQuestion]["title"];
 
+  for (var i = 0; i < questions[currentQuestion]["choices"].length; i++) {
+    var li = document.createElement("li");
+    
+
+    var button = document.createElement("button");
+    button.textContent = questions[currentQuestion]["choices"][i];
+    li.setAttribute("data-choice", i);
+
+    choicesList.appendChild(li); 
+    li.appendChild(button);
   }
+
 }
 
+//Timer Script (remember to rename these variables and whatnot)
 function setTime() {
 
-  var timeRemaining = "5";
+  //var timeRemaining was created globally
+  timeRemaining = "5";
 
   var timerInterval = setInterval(function() {
     timeRemaining--;
@@ -73,7 +86,7 @@ function setTime() {
 
   }, 1000);
 
-  addChoices()
+  displayQuestions()
 }
 
 function sendTimeIsUp() {
@@ -93,7 +106,6 @@ function hideStart() {
 
 startquizbtn.addEventListener("click", setTime);
 startquizbtn.addEventListener("click", hideStart);
-
 
 //End Timer Script
 
