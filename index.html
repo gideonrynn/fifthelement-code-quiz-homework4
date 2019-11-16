@@ -21,13 +21,21 @@
 
   </head>
 
+  <style>
+
+    li:hover {
+      background: red;
+    }
+    
+  </style>
+
   <body background="assets/images/arches.png">
 
     <nav class="navbar navbar-expand-lg navbar-light justify-content-around" style="background-color: #600060;;">
 
       <a class="highscores" style="color: #cccccc;" href="#"><h5>View High Scores</h5></a>
                 
-      <a class="navbar-brand" style="color: #cccccc;" href="#"><h4>Coding Quiz Challenge</h4></a>
+      <a class="navbar-brand" style="color: #cccccc;" href="#"><h4>Fifth Element Quiz Challenge</h4></a>
 
       <!-- Start of what the timer is referencing -->
 
@@ -41,13 +49,13 @@
 
       <div class="row">
             
-        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 mx-auto shadow p-3 mb-5 bg-white rounded">
+        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 m-auto shadow p-3 mb-5 bg-white rounded">
 
           <div class="starter text-center" style="display:block">
 
             <h5> Test Your Knowledge</h5>
 
-            <p>This is a coding quiz that will have coding quiz questions! Answering the questions to this coding quiz will make you the master of everything!
+            <p>This is a quiz that will test your knowledge of "The Fifth Element"! Answering the questions to this quiz will make you awesome and friends with Sarah!
             </p>
             
             <button type="button" id="startquizbtn" class="btn btn-success">Start Quiz</button>
@@ -64,7 +72,7 @@
 
           
           <div class ="progressSection">
-          <!-- This is where any updates will go: "Time is up" "You won this quiz" "Etc" -->
+          <!-- This is where any updates will go: "Time is up" "Your answer is correct/incorrect" "You won this quiz" "Etc" -->
           <div id="progress"></div>
           </div>
 
@@ -78,6 +86,9 @@
 
 
 
-    <script type="text/javascript" src="assets/questions.js"></script>
+    <script type="text/javascript" src="assets/questions.js">
+
+    
+    </script>
 
   </body>
