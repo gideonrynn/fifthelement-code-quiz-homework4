@@ -3,7 +3,7 @@
 var questions = [
   {
     title: "1. The Fifth Element was written by _______",
-    choices: ["John Stamos", "Luc Besson", "Sting", "Name 4"],
+    choices: ["John Stamos", "Luc Besson", "Sting", "Maggie Smith"],
     answer: "Luc Besson"
   },
   {
@@ -25,7 +25,7 @@ var questions = [
     title: "5. Milla Jovovich was __ years old when she landed the role of this movie.",
     choices: ["19", "21", "33", "80"],
     answer: "19"
-  },
+  }
 ];
 
 //All Variables
@@ -54,7 +54,6 @@ function addChoices() {
   answerList.appendChild(li);
   titlePlaceholder.appendChild(questionHeader);
 
-  
 
   }
 }
