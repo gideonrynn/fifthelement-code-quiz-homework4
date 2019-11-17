@@ -23,28 +23,34 @@
 
   <style>
 
+    body {
+      background-image: url("assets/images/fifthelementbg2.jpg");
+    }
+
     li:hover {
       background:lightskyblue;
     }
 
     li {
-      width: 100px;
+      width: 250px;
       height: 30px;
     }
+
+    .quiz-components {
+      padding-left: 20px;
+      padding-right: 20px; 
+    }
+
     
   </style>
 
-  <body background="assets/images/arches.png">
+  <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light justify-content-around" style="background-color: #600060;;">
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-around" style="background-color: #191970;;">
 
-      <a class="highscores" style="color: #cccccc;" href="#"><h5>View High Scores</h5></a>
-                
       <a class="navbar-brand" style="color: #cccccc;" href="#"><h4>The Fifth Element Quiz</h4></a>
 
       <!-- Start of what the timer is referencing -->
-
-      <div class="timer" style="color: #cccccc;"> <h5>Time/Points: </h5><div id="seconds">0</div></div>
 
       <!-- End of what the timer script is referencing -->
            
@@ -56,11 +62,13 @@
             
         <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 m-auto shadow p-3 mb-5 bg-white rounded">
 
+          <!-- this is the section that will appear when the user lands on the page, and will hide at later stages -->
+
           <div class="starter text-center" style="display:block">
 
-            <h5> Test Your Fifth Element Knowledge</h5>
+            <h5> Apipoulaï!</h5>
 
-            <p>This is a quiz that will test your knowledge of <a href="https://www.imdb.com/title/tt0119116/">The Fifth Element (1997)</a>, a sci fi "space opera" starring Milla Jovovich and Bruce Willis. Answering the questions to this quiz will make you more awesome than you already are and friends with Sarah!
+            <p>This is a quiz that will test your knowledge of <a href="https://www.imdb.com/title/tt0119116/">The Fifth Element (1997)</a>, a sci fi "space opera" starring Milla Jovovich, Bruce Willis and many other talented actors. Answering the questions to this quiz will make you more awesome than you already are!
               <br><br>
             There are 5 questions in this timed quiz. Time = Points! Answer correctly, get +15; answer incorrectly, -15!
             </p>
@@ -68,6 +76,8 @@
             <button type="button" id="startquizbtn" class="btn btn-success">Super Green, Let's Start The Quiz</button>
             
           </div>
+
+          <!-- this section will pull questions for the quiz. no limit on the number of questions that can be added to the questions variable for display. will hide when quiz is complete -->
 
           <div class="quiz-components">
 
@@ -77,46 +87,51 @@
 
             <hr>
           
-
           </div>
 
+          <!-- this section will contain the user final score and input for adding initials to existing scores. will hide when moving to high scores section -->
           <div class="closer text-center" style="display:none">
 
             <h5>Quiz Complete!</h5>
             <br>
 
             <p>Your final score is</p>
-            <div id="score"></div>
+            <p id="user-score">0</p>
             <br>
 
-            <label for="addname">Add Your Name</label>
-            <input type="text" id="name">
-            <button type="button" id="submitbtn" class="btn btn-primary">Submit</button>
+            <label for="addname">Add Your Initials</label>
+            <input type="text" id="newinitials">
+            <button type="button" id="submitbtn" class="btn btn-primary">Add to "High Scores"</button>
+            <br>
             <br>
             
+          <!-- button disabled -->
             <button type="button" id="startfromfinal" class="btn btn-success">Start Quiz Over</button>
 
+            <!-- button connects to View High Scores page -->
             <button type="button" id="viewhighscores" class="btn btn-success">View High Scores</button>
             
           </div>
 
+          <!-- will contain all high scores from local storage -->
           <div class="high-scores text-center" style="display:none">
 
             <h5>High Scores</h5>
             <br>
             <p class="holder"></p>
 
-            <button type="button" id="clear" class="btn btn-primary">Clear</button>
+            <button type="button" id="clearbtn" class="btn btn-primary">Clear</button>
+
             
           </div>
 
           
-          <div class ="progressSection">
+          <div class="progressSection" style="display:block">
           <!-- This is where any updates will go: "Time is up" "Your answer is correct/incorrect" "You won this quiz" "Etc" -->
-          <div id="progress"></div>
-          
-          </div>
+          <label for="name">Timer</label>
+          <div class="timer" label="Timer" id="seconds">0</div>
 
+          <div id="progress"></div>
 
         </div>
         <!-- End Column -->
@@ -129,7 +144,7 @@
 
     <script type="text/javascript" src="assets/questions.js">
 
-    
+
     </script>
 
   </body>

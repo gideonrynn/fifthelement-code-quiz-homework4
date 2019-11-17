@@ -1,19 +1,15 @@
 # code-quiz-homework4
-This is a Git Hub repository for the NU Coding Bootcamp homework 4 Code Quiz.
+This is a Git Hub repository for the NU Coding Bootcamp homework 4 Code Quiz. Updated 11/12 to The Fifth Element quiz.
 
 ## Purpose
-UPDATE
-This application will assist users with creating strong passwords quickly that meet a range of security requirements. This can be useful for employees, businesses, and anyone who needs unique passwords generated quickly.
+Fun! This quiz will contain questions pertaining to The Fifth Element movie. Questions will test knowledge of movie.
 
 ## Usage
-UPDATE
-The user will be prompted to choose the length and character type (special, numeric, lowercase, uppercase). The user may also choose to copy to clipboard, which will allow them to paste on or in any text input on their phone and computer.
+The user will be prompted to start the quiz and will proceed through a list of questions. Timer will run and counts as the score. Correct choices add +15 points/seconds, and wrong choices add -15 points/seconds. Once timer reaches 0, the score will be zero. 
 
+To increase or decrease the questions in the quiz, only change that needs to be made is to the var questions list. No changes to html needed.
 
-## GitHub Pages Link
-UPDATE
-https://gideonrynn.github.io/password-generator-homework3/
-
+**Please note - local storage for high scores list is not functioning in this iteration of the application
 
 ## Installation
 
