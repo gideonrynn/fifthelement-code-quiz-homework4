@@ -69,7 +69,7 @@
             
           </div>
 
-          <div class="quizComponents">
+          <div class="quiz-components">
 
             <h5 class="title"></h5>
 
@@ -85,16 +85,28 @@
             <h5>Quiz Complete!</h5>
             <br>
 
-            <p>Your final score is </p>
+            <p>Your final score is</p>
+            <div id="score"></div>
             <br>
 
-            <label>Add Your Name</label>
-            <input type="text">
+            <label for="addname">Add Your Name</label>
+            <input type="text" id="name">
+            <button type="button" id="submitbtn" class="btn btn-primary">Submit</button>
             <br>
             
-            <button type="button" id="" class="btn btn-success">Start Quiz Over</button>
+            <button type="button" id="startfromfinal" class="btn btn-success">Start Quiz Over</button>
 
-            <button type="button" id="" class="btn btn-success">View High Scores</button>
+            <button type="button" id="viewhighscores" class="btn btn-success">View High Scores</button>
+            
+          </div>
+
+          <div class="high-scores text-center" style="display:none">
+
+            <h5>High Scores</h5>
+            <br>
+            <p class="holder"></p>
+
+            <button type="button" id="clear" class="btn btn-primary">Clear</button>
             
           </div>
 
@@ -102,6 +114,7 @@
           <div class ="progressSection">
           <!-- This is where any updates will go: "Time is up" "Your answer is correct/incorrect" "You won this quiz" "Etc" -->
           <div id="progress"></div>
+          
           </div>
 
 

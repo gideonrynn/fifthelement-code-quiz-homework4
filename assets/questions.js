@@ -25,11 +25,6 @@ var questions = [
     title: "Milla Jovovich was __ years old when she landed the role of Leloo.",
     choices: ["19", "21", "33", "80"],
     answer: "19"
-  },
-  {
-    title: "Milla Jovovich was __ years old when she landed the role of Leloo.",
-    choices: ["19", "21", "33", "80"],
-    answer: "19"
   }
 
 ];
@@ -48,10 +43,13 @@ var timeRemaining = "0";
 var choicesList = document.querySelector("#choices-list");
 var starterSection = document.querySelector(".starter");
 var titlePlaceholder = document.querySelector(".title");
-var listItem = document.getElementById("li");
+var quizComponents = document.querySelector(".quiz-components")
+var highScoresSection = document.querySelector(".high-scores");
+var closerSection = document.querySelector(".closer");
+var holderSpot = document.querySelector(".holder");
 
 //Starts off as zero. This will be logged into localStorage so that the user can view high scores at a later date. The timer #seconds will pull into here as well
-var score = "0";
+var userScore = document.querySelector(".title");
 
 //this is the question object/array we are currently on
 var currentQuestion = "0";
@@ -74,12 +72,7 @@ function displayQuestions() {
   //create for loop that will loop through each choice string in the object
   for (var i = 0; i < question.choices.length; i++) {
 
-    //create the list and button elements
-
     var li = document.createElement("li");
-    
-    //var button = document.createElement("button");
-    //button.textContent = questions[currentQuestion].choices[i];
 
     //pull the choice(s) associated with the current question
     li.textContent = questions[currentQuestion].choices[i];
@@ -88,38 +81,42 @@ function displayQuestions() {
     li.setAttribute("id", questions[currentQuestion].choices[i]);
     li.setAttribute("class", "new");
 
-    //append new button and new list item 
     choicesList.append(li); 
-    //li.appendChild(button);//
+    
   }
 
 }
 
-// //
 function chooseAnswer() {
   
   var choiceClicked = event.target.id;
-  var li = document.querySelectorAll("li");
+  var li = document.querySelectorAll(li);
 
   var currentAnswer = questions[currentQuestion].answer;
 
   if (choiceClicked === currentAnswer) {
     progressUpdate.innerHTML = "Correct! +15 points";
-    timeRemaining = +15;
+    timeRemaining = timeRemaining + 15;
 } 
   else {
     progressUpdate.innerHTML = "Wrong! -15 points";
+    timeRemaining = timeRemaining - 15;
   }
 
   if (timeRemaining > 0) {
     currentQuestion = +currentQuestion + 1;
-    progressUpdate.innerHTML = "";
+    
   }
 
-  displayQuestions();
+  if (currentQuestion >= questions.length) {
+   
+    showFinalScore();
+  }
+    else {
+      displayQuestions();
+    }
+  
 }
-
-
 
 //Timer Script (remember to rename these variables and whatnot)
 function setTime() {
@@ -146,9 +143,29 @@ function sendTimeIsUp() {
 
 }
 
+function showFinalScore() {
+  quizComponents.setAttribute("style", "display:none");
+  closerSection.setAttribute("style", "");
+
+}
+
 //hide the Starter section by changing the style: display on the start section div
 function hideStart() {
   starterSection.setAttribute('style', 'display:none');
+}
+
+function viewHighScores () {
+  viewHighScores.setAttribute("style", "");
+  var storedName = localStorage.getItem("name");
+  var p1 = document.createElement("p");
+  p1.innerHTML = storedName;
+  holderSpot.appendChild("p1");
+
+}
+
+function addToLocalStorage () {
+  var initialsScore = document.getElementById("#name");
+  localStorage.setItem("name", initialsScore);
 }
 
 //kick off timer and hide the starter div with click events connected to the Start Button
@@ -156,3 +173,5 @@ startquizbtn.addEventListener("click", setTime);
 startquizbtn.addEventListener("click", hideStart);
 startquizbtn.addEventListener("click", displayQuestions);
 choicesList.addEventListener("click", chooseAnswer);
+viewhighscores.addEventListener("click", viewHighScores);
+submitbtn.addEventListener("click", addToLocalStorage);
