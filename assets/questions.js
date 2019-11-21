@@ -26,7 +26,7 @@ var questions = [
     answer: "19"
   },
   {
-    title: "The fifth element is _______.",
+    title: "The key to harnessing the power of the fifth element is _______. ",
     choices: ["love", "water", "earth", "wind"],
     answer: "love"
   },
