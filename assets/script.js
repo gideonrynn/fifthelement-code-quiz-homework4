@@ -25,7 +25,7 @@ var userScore = document.querySelector("#user-score");
 var currentQuestion = "0";
 
 //didn't get this to work for local storage as a part of addToLocalStorage function
-var savedHighScores = JSON.parse(localStorage.getItem("savedHighScores"))|| [];
+var savedHighScores = [];
 console.log(savedHighScores);
 
 
@@ -124,35 +124,54 @@ function showFinalScore() {
 
 }
 
-//return array of stored values in local storage and display on page
-function viewAllScores () {
 
-  highScoresSection.setAttribute("style", "");
-  closerSection.setAttribute("style", "display:none");
 
-  holderSpot.innerHTML = savedHighScores;
+function addToArray () {
+
+    if (savedHighScores === null) {
+        savedHighScores = [];
+      }
+
+    var userCurrentName = newInitials.value;
+    var userCurrentScore = userScore.innerHTML;
+   
+    savedHighScores.push({name: userCurrentName, score: userCurrentScore});
+    console.log(savedHighScores);
+
+    addToLocalStorage();
 }
 
 //**didn't get this to work for local storage
 //get user initials (input), and current user score, and add to local storage as an array, add each total score object to the existing array
 function addToLocalStorage () {
 
-  var userCurrentName = newInitials.value;
-  var userCurrentScore = userScore.innerHTML;
-
-  var totalscore = {
-    score: userCurrentScore, 
-    name: userCurrentName
+    var savedHighScoresString = JSON.stringify(savedHighScores);
+  
+    localStorage.setItem('scoresupdate', savedHighScoresString);
+  
+    viewAllScores();
+  
   }
- 
-  savedHighScores.push(totalscore);
-  console.log(savedHighScores);
 
-  localStorage.setItem("scoresupdate", savedHighScores);
+//return array of stored values in local storage and display on page
+function viewAllScores () {
 
-  viewAllScores();
+  highScoresSection.setAttribute("style", "");
+  closerSection.setAttribute("style", "display:none");
+
+   getfromLocal();
 
 }
+
+function getfromLocal () {
+    var savedHighScoresString = JSON.parse(localStorage.getItem('scoresupdate'));
+    savedHighScores = savedHighScoresString;
+
+    console.log(savedHighScoresString);
+
+    holderSpot.innerHTML = JSON.stringify(savedHighScores);
+}
+
 
 function clearScores () {
   localStorage.clear(savedHighScores);
@@ -162,9 +181,12 @@ function clearScores () {
 startquizbtn.addEventListener("click", runTimer);
 startquizbtn.addEventListener("click", displayQuestions);
 choicesList.addEventListener("click", chooseAnswer);
-submitbtn.addEventListener("click", addToLocalStorage);
+addscorebtn.addEventListener("click", addToArray);
 clearbtn.addEventListener("click", clearScores);
-viewhighscores.addEventListener("click", viewAllScores);
+viewscores.addEventListener("click", viewAllScores);
+// startfromfinal.addEventListener("click", displayQuestions);
+
+getfromLocal ();
 
 
 
