@@ -1,15 +1,26 @@
 # code-quiz-homework4
-This is a Git Hub repository for the NU Coding Bootcamp homework 4 Code Quiz. Updated 11/12 to The Fifth Element quiz.
+This is a Git Hub repository for the NU Coding Bootcamp homework 4 The Fifth Element quiz.
 
 ## Purpose
 Fun! This quiz will contain questions pertaining to The Fifth Element movie. Questions will test knowledge of movie.
+
+
+## Screenshot of Completed Application
+
+![quiz screenshot](./assets/images/fifthelementquiz.JPG)
+![quiz screenshot2](./assets/images/fifthelementquiz2.JPG)
+
+
+## GitHub Pages Link
+https://gideonrynn.github.io/fifthelement-code-quiz-homework4/
+
 
 ## Usage
 The user will be prompted to start the quiz and will proceed through a list of questions. Timer will run and counts as the score. Correct choices add +15 points/seconds, and wrong choices add -15 points/seconds. Once timer reaches 0, the score will be zero. 
 
 To increase or decrease the questions in the quiz, only change that needs to be made is to the var questions list. No changes to html needed.
 
-**Please note - local storage for high scores list is not functioning in this iteration of the application
+Additional questions can be added or removed easily from the questions.js.
 
 ## Installation
 
